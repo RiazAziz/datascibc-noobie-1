@@ -19,7 +19,8 @@
 
 # RStudio files
 .Rproj.user/
-testignore.public-datascibc-noobie.tagimoucia-cheryl/
+testignore.txt
+testignore2.txt
 
 # produced vignettes
 vignettes/*.html
