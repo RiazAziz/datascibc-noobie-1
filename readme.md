@@ -23,3 +23,18 @@ Ensure that your `.gitignore` file excludes `.Renviron` and data files that migh
 - https://happygitwithr.com
 - http://www.dartistics.com/renviron.html
 
+## making connection to "star" database in EMAP 
+
+•	This is very simple and you use the “secrets.R’  file again 
+
+install.package("RPostgres")
+library(RPostgres)
+source("secrets.R")
+ctn <- DBI::dbConnect(RPostgres::Postgres()
+                      host = host,
+                      port = port,
+                      user = user,
+                      password = password,
+                      dbname = dbname)
+
+
