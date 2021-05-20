@@ -31,6 +31,8 @@
 
 # RStudio files
 .Rproj.user/
+testignore.txt
+testignore2.txt
 
 # produced vignettes
 vignettes/*.html
