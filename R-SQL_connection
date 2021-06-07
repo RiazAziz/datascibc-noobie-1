@@ -1,0 +1,28 @@
+                              ---- pipeline between SQL and R to allow to data analysis/ exploration in R -------
+
+1.	In R: Make a SQL file – place the SQL code you have written for the query you want in this and safe it 
+
+2.	Make a new R script: You will need to incorporate your R secrets/ Renviron – I use R secrets and this will explain how to do it with that
+              -	Check the secrets file for how to set up a secrets file 
+
+3.	In the R script put in the follwiong 
+            -	Example : 'Core_Demo_NEWS_2021.sql'
+
+4. 
+      Install.package("RPostgres")
+      library(RPostgres)
+      library(tidyverse)
+      getwd()
+      setwd("~/EMAP_Project")
+      source("secrets.R")
+      ctn <- DBI::dbConnect(RPostgres::Postgres(),
+                      	   host = host,
+                     	     port = port,
+                    	     user = user,
+                     	     password = password,
+                      	   dbname = dbname)
+
+5.
+dataframe <- dbGetQuery(ctn, 'select * from star.location')
+          -	Make sure to include the relevant table you are working on 
+core_demo <- dbGetQuery(ctn, readr::read_file('Core_Demo_NEWS_2021.sql'))
